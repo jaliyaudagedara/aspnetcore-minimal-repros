@@ -1,0 +1,13 @@
+@WebApplication1_HostAddress = http://localhost:5001
+
+POST {{WebApplication1_HostAddress}}/FromBody/
+Content-Type: application/json
+
+{
+    "options": {
+        "$type": "ClassificationOptions",
+        "commonOption1": "SomeCommonOption1",
+        "classificationOption1": "someClassificationOption1"
+    }
+}
+###
