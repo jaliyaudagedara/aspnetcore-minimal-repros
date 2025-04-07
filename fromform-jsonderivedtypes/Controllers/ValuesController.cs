@@ -30,7 +30,6 @@ public class SomeHttpRequestModel
 public class OptionsBase
 {
     public string? CommonOption1 { get; set; } = null;
-
 }
 
 public class ClassificationOptions : OptionsBase
