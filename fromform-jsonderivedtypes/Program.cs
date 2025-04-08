@@ -6,7 +6,7 @@ WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers(options =>
 {
     // Add the custom model binder to support [FromForm] with Polymorphic types
-    options.ModelBinderProviders.Insert(0, new SomeHttpRequestModelBinderProvider());
+    options.ModelBinderProviders.Insert(0, new AnalyzeOptionsModelBinderProvider());
 });
 
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi

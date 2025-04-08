@@ -1,18 +1,18 @@
 ﻿using Microsoft.AspNetCore.Mvc.ModelBinding;
-using WebApplication1.Controllers;
+using WebApplication1.Models;
 
 namespace WebApplication1.Binders;
 
-public class SomeHttpRequestModelBinderProvider : IModelBinderProvider
+public class AnalyzeOptionsModelBinderProvider : IModelBinderProvider
 {
     public IModelBinder GetBinder(ModelBinderProviderContext context)
     {
-        if (context.Metadata.ModelType != typeof(OptionsBase))
+        if (context.Metadata.ModelType != typeof(AnalyzeOptions))
         {
             return null;
         }
 
-        Type[] subclasses = [typeof(ClassificationOptions), typeof(AnalyzeOptions),];
+        Type[] subclasses = [typeof(ClassificationOptions), typeof(ExtractionOptions),];
 
         var binders = new Dictionary<Type, (ModelMetadata, IModelBinder)>();
         foreach (Type type in subclasses)
@@ -21,6 +21,6 @@ public class SomeHttpRequestModelBinderProvider : IModelBinderProvider
             binders[type] = (modelMetadata, context.CreateBinder(modelMetadata));
         }
 
-        return new SomeHttpRequestModelBinder(binders);
+        return new AnalyzeOptionsModelBinder(binders);
     }
 }

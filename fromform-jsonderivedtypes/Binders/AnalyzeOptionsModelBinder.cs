@@ -1,14 +1,14 @@
 ﻿using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
-using WebApplication1.Controllers;
+using WebApplication1.Models;
 
 namespace WebApplication1.Binders;
 
-public class SomeHttpRequestModelBinder : IModelBinder
+public class AnalyzeOptionsModelBinder : IModelBinder
 {
     private Dictionary<Type, (ModelMetadata, IModelBinder)> binders;
 
-    public SomeHttpRequestModelBinder(Dictionary<Type, (ModelMetadata, IModelBinder)> binders)
+    public AnalyzeOptionsModelBinder(Dictionary<Type, (ModelMetadata, IModelBinder)> binders)
     {
         this.binders = binders;
     }
@@ -24,9 +24,9 @@ public class SomeHttpRequestModelBinder : IModelBinder
         {
             (modelMetadata, modelBinder) = binders[typeof(ClassificationOptions)];
         }
-        else if (modelTypeValue == nameof(AnalyzeOptions))
+        else if (modelTypeValue == nameof(ExtractionOptions))
         {
-            (modelMetadata, modelBinder) = binders[typeof(AnalyzeOptions)];
+            (modelMetadata, modelBinder) = binders[typeof(ExtractionOptions)];
         }
         else
         {
