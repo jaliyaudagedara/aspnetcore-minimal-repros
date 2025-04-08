@@ -22,6 +22,8 @@ public class ValuesController : ControllerBase
 
 public class SomeHttpRequestModel
 {
+    public IFormFileCollection Files { get; set; }
+
     public OptionsBase Options { get; set; }
 }
 
@@ -34,10 +36,10 @@ public class OptionsBase
 
 public class ClassificationOptions : OptionsBase
 {
-    public string? ClassificationOption1 { get; set; }
+    public string? ClassificationOption1 { get; set; } = null;
 }
 
 public class AnalyzeOptions : OptionsBase
 {
-    public string? AnalyzeOptions1 { get; set; } = null;
+    public string? AnalyzeOption1 { get; set; } = null;
 }
